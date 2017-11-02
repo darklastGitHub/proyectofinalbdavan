@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelests"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template.xhtml">
+
+<ui:define name="cuerpo">
+	<h:form id="form">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:panel header="Crear">
+			<h:panelGrid columns="3" id="paneltabla" style="margin: 0 auto;">
+				<p:outputLabel for="codigoeps" id="codigoeps" value="Codigo eps:" />
+				<p:inputText id="tfcodigoeps" value="#{controladorEps.ideps}"
+					required="true" />
+				<h:message style="color:red;margin:8px;" for="tfcodigoeps" />
+				<p:outputLabel for="nombreeps" id="nombreeps" value="Nombre eps:"/>
+				<p:inputText id="tfnombreeps" value="#{controladorEps.nombre}" />
+			</h:panelGrid>
+
+			<p:commandButton id="botonregistrar" value="Registrar"
+				actionListener="#{controladorEps.crearEps}"  update="growl" styleClass="ui-priority-primary"/>
+		</p:panel>
+	</h:form>
+</ui:define>
+</ui:composition>

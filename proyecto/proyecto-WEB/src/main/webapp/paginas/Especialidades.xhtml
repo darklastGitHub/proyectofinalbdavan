@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelests"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<h:panelGrid columns="2" id="paneltabla" style="margin: 0 auto;">
+			<h:outputText id="lblcodigo" value="Codigo:"></h:outputText>
+			<h:inputText id="tfcodigo" value="#{conEspecialidad.codigo}" />
+			<h:outputText id="nombre" value="Nombre:"></h:outputText>
+			<h:inputText id="tfnombre" value="#{conEspecialidad.nombre}" />
+			<h:outputText id="lblestado" value="Estado"></h:outputText>
+			
+		</h:panelGrid>
+
+		<h:commandButton id="botonregistrar" value="Registrar"
+			action="#{conEspecialidad.crear}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelests"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:panel header="Persona">
+			<h:panelGrid columns="4" id="paneltabla"
+				style="margin: 0 auto;padding:12px">
+
+
+				<p:outputLabel for="idpersona" id="idpersona" value="Id persona:" />
+				<p:inputText id="tfidpersona" value="#{conPersona.idpersona}"
+					required="true" style="margin-right:35px" />
+
+
+				<p:outputLabel for="nombrepersona" id="nombrepersona"
+					value="Nombre:" />
+				<p:inputText id="tfnombrepersona"
+					value="#{conPersona.nombrepersona}" required="true" />
+
+
+				<p:outputLabel for="apellidopersona" id="apellidopersona"
+					value="Apellido:" />
+				<p:inputText id="tfapellidopersona"
+					value="#{conPersona.apellidopersona}" required="true" />
+
+
+				<p:outputLabel for="numerodocumentopersona"
+					id="numerodocumentopersona" value="Numero documento:" />
+				<p:inputText id="tfdocumentoopersona"
+					value="#{conPersona.numerodocumentopersona}" required="true" />
+
+
+				<p:outputLabel for="emailpersona" id="emailpersona" value="Email:" />
+				<p:inputText id="tfemailpersona" value="#{conPersona.emailpersona}"
+					required="true" />
+
+
+				<p:outputLabel for="fechanacimientopersona"
+					id="fechanacimientopersona" value="Fecha nacimiento:" />
+				<p:calendar id="button" value="#{conPersona.fechanacimientopersona}"
+					showOn="button" />
+
+				<p:outputLabel for="telefonopersona" id="telefonopersona"
+					value="Telefono:" />
+				<p:inputText id="tftelefonopersona"
+					value="#{conPersona.telefonopersona}" required="true" />
+
+				<p:outputLabel for="ciudadpersona" id="ciudadpersona"
+					value="Ciudad:" />
+
+				<p:selectOneMenu id="combociudad"
+					value="#{conPersona.ciudadselesscionada}">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{conPersona.listarciudades}" var="ciudad"
+						itemLabel="#{ciudad.nombreciudad}" itemValue="#{ciudad}" />
+
+					<!-- <f:ajax event="change" execute="@this" render="comboCiudad"
+						listener="#{controladorCliente.seleccionDepartamento}" /> -->
+
+				</p:selectOneMenu>
+
+				<p:outputLabel for="departamentopersona" id="departamentopersona"
+					value="Departamento:" />
+
+				<p:selectOneMenu id="combodepartamento"
+					value="#{conPersona.departamentoseleccionado}">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{conPersona.listardepartamento}"
+						var="departamento" itemLabel="#{departamento.nombredepartemento}"
+						itemValue="#{departamento}" />
+
+					<!-- <f:ajax event="change" execute="@this" render="comboCiudad"
+						listener="#{controladorCliente.seleccionDepartamento}" /> -->
+
+				</p:selectOneMenu>
+
+				<p:outputLabel for="epspersona" id="epspersona" value="Eps:" />
+
+				<p:selectOneMenu id="comboeps" value="#{conPersona.epsseleccionada}">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{conPersona.listareps}" var="eps"
+						itemLabel="#{eps.nombre}" itemValue="#{eps}" />
+
+					<!-- <f:ajax event="change" execute="@this" render="comboCiudad"
+						listener="#{controladorCliente.seleccionDepartamento}" /> -->
+
+				</p:selectOneMenu>
+
+				<p:outputLabel for="estadocivilpersona" id="estadocivilpersona" value="Estado civil:" />
+
+				<p:selectOneMenu id="comboestadocivil" value="#{conPersona.estadocivilseleccionado}">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{conPersona.listarestadocivil}" var="estadocivil"
+						itemLabel="#{estadocivil.nombreestadocivil}" itemValue="#{estadocivil}" />
+
+					<!-- <f:ajax event="change" execute="@this" render="comboCiudad"
+						listener="#{controladorCliente.seleccionDepartamento}" /> -->
+
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="tipodocumentopersona" id="tipodocumentopersona" value="Tipo documento:" />
+				
+				<p:selectOneMenu id="combotipodocumento" value="#{conPersona.tipodocumentoseleccionado}">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{conPersona.listartipodocumento}" var="tipodocumento"
+						itemLabel="#{tipodocumento.nombredocumento}" itemValue="#{tipodocumento}" />
+
+					<!-- <f:ajax event="change" execute="@this" render="comboCiudad"
+						listener="#{controladorCliente.seleccionDepartamento}" /> -->
+
+				</p:selectOneMenu>
+
+
+
+			</h:panelGrid>
+
+			<p:fieldset>
+				<h:panelGrid columns="2" id="panelbotones" style="margin: 0 auto;">
+					<p:commandButton id="botonregistrar" value="Registrar"
+						actionListener="#{conPersona.crearpersona}" update="growl"
+						styleClass="ui-priority-primary" />
+
+					<p:commandButton id="botoneliminar" value="Eliminar"
+						actionListener="#{conPersona.eliminarpersona}" update="growl"
+						styleClass="ui-priority-primary" />
+				</h:panelGrid>
+			</p:fieldset>
+		</p:panel>
+		<h:panelGrid columns="5" id="tabla" style="margin: 0 auto;">
+			<p:dataTable var="persona" value="#{conPersona.listarpersonas}"
+				rows="10" paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" style="margin: 0 auto;">
+				<p:column headerText="Id persona">
+					<h:outputText value="#{persona.idpersona}" />
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{persona.nombre}" />
+				</p:column>
+
+				<p:column headerText="Apellido">
+					<h:outputText value="#{persona.apellido}" />
+				</p:column>
+
+				<p:column headerText="Numero documento">
+					<h:outputText value="#{persona.numeroDocumento}" />
+				</p:column>
+				<p:column headerText="Email">
+					<h:outputText value="#{persona.email}" />
+				</p:column>
+				<p:column headerText="Fecha nacimiento">
+					<h:outputText value="#{persona.fechanacimiento}" />
+				</p:column>
+				<p:column headerText="Telefono">
+					<h:outputText value="#{persona.telefono}" />
+				</p:column>
+				<p:column headerText="Ciudad">
+					<h:outputText value="#{persona.ciudadpersona.nombreciudad}" />
+				</p:column>
+				<p:column headerText="Genero">
+					<h:outputText value="#{persona.generopersona.sexo}" />
+				</p:column>
+				<p:column headerText="Eps">
+					<h:outputText value="#{persona.epspersona.nombre}" />
+				</p:column>
+				<p:column headerText="Estadocivil">
+					<h:outputText
+						value="#{persona.estadocivilpersona.nombreestadocivil}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

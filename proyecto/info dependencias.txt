@@ -1,0 +1,4 @@
+Modulo WEB,
+ Modulo de Negocio(EJB) 
+ módulo de persistencia(JPA) 
+el Modulo Empresarial (EAR).

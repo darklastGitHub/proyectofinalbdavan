@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="proyecto/proyecto-standalone/src/main/java"/>
+	<classpathentry kind="src" path="proyecto/proyecto-JPA/src/main/java"/>
+	<classpathentry kind="src" path="proyecto/proyecto-WEB/src/main/java"/>
+	<classpathentry kind="src" path="proyecto/proyecto-EJB/src/main/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
